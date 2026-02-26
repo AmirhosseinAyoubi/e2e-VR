@@ -56,4 +56,23 @@ test.describe('Homepage', () => {
         const skipLink = page.locator('[data-testid="skip-to-content-link"]');
         await expect(skipLink).toBeAttached(); // present in DOM even if visually hidden
     });
+
+    
+    test('homepage should not log JS errors', async ({ page }) => {
+    const errors: string[] = [];
+
+    page.on('pageerror', err => errors.push(err.message));
+
+    await page.reload();
+
+    expect(errors).toEqual([]);
+    });
+
+    test('cookies should stay dismissed after reload', async ({ page }) => {
+    await page.reload();
+
+    const banner = page.locator('[data-testid="cookie-banner"]');
+    await expect(banner).toBeHidden();
+    });
+
 });
