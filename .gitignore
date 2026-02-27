@@ -1,0 +1,29 @@
+# --- Python & Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# --- Playwright Specific ---
+# Exclude test artifacts and traces (essential for reliability analysis)
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# --- Project Specific (Team Juicebox) ---
+# Exclude the user data directory if using persistent contexts
+user_data/
+# Exclude automatically generated screenshots for your report
+screenshots/
+# Exclude Pytest cache
+.pytest_cache/
+
+# --- IDE & OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
