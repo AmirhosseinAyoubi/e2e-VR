@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 export async function dismissCookies(page: Page): Promise<void> {
     const modal = page.locator('[data-testid="cookie-consent-modal"]');
